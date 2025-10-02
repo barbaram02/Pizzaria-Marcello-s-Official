@@ -1,0 +1,27 @@
+<svg width="250" height="80" viewBox="0 0 250 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Compact Pizza Icon -->
+  <g transform="translate(15, 15)">
+    <!-- Pizza base (slice) -->
+    <path d="M25 8 L42 38 L8 38 Z" fill="#F59E0B" stroke="#D97706" stroke-width="1.5"/>
+    
+    <!-- Cheese layer -->
+    <path d="M25 12 L38 34 L12 34 Z" fill="#FEF3C7" opacity="0.8"/>
+    
+    <!-- Pepperoni -->
+    <circle cx="22" cy="22" r="2.5" fill="#DC2626"/>
+    <circle cx="30" cy="25" r="2.5" fill="#DC2626"/>
+    <circle cx="25" cy="30" r="2.5" fill="#DC2626"/>
+    
+    <!-- Basil -->
+    <ellipse cx="28" cy="20" rx="2" ry="3" fill="#16A34A" transform="rotate(25 28 20)"/>
+  </g>
+
+  <!-- Compact Text -->
+  <g transform="translate(75, 25)">
+    <!-- MARCELLO'S -->
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#DC2626">MARCELLO'S</text>
+    
+    <!-- Pizza -->
+    <text x="0" y="38" font-family="Arial, sans-serif" font-size="14" font-weight="600" font-style="italic" fill="#D97706">Pizza</text>
+  </g>
+</svg>

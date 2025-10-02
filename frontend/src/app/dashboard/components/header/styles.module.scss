@@ -1,0 +1,49 @@
+.headerContainer{
+    height: 5rem;
+}
+
+.headerContent{
+    max-width: 1700px;
+    height: 5rem;
+    margin: 0 auto;
+    padding: 0 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+        width: 250px;  /* aumenta o tamanho real */
+        height: auto;  /* mantém proporção */
+    }
+
+
+    nav{
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        a{
+            color: var(--white);
+            font-size: 20px;
+            text-decoration: none;
+            transition: color .8s;
+
+            &:hover{
+                color: var(--red-900)
+            }
+        }
+
+        button{
+            border: 0;
+            background: transparent;
+            margin-left: 16px;
+            transition: transform 0.5s;
+
+            &:hover{
+                transform: scale(1.2);
+            }
+
+        }
+    }
+}
