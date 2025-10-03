@@ -1,7 +1,5 @@
-import axios from "axios"
+import axios from 'axios'
 
-
-//“atalho” para fazer requisições ao backend.
 export const api = axios.create({
-    baseURL: "http://localhost:8000"
+  baseURL: process.env.BACKEND_URL || "http://localhost:8000"
 })

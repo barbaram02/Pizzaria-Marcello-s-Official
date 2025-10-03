@@ -1,9 +1,9 @@
-import { api } from '@/services/api'
 import styles from './page.module.scss'
 import logoImg from '/public/marcello-pizza-logo-compacto.svg'
 import Image from 'next/image'
 import Link from 'next/link'
-import { redirect } from "next/navigation"
+import { api } from '@/services/api'
+import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
 
 export default function Home() {
@@ -32,7 +32,7 @@ export default function Home() {
       console.log(response.data);
 
       //Salvando o token no cookies para facilitar no acesso do usuario
-      const expressTime = 60 * 60 * 24 * 30 * 1000;
+      const expressTime = 60 * 60 * 24 * 30;
       const cookieStore = await cookies();
       
       cookieStore.set("session", response.data.token, {
