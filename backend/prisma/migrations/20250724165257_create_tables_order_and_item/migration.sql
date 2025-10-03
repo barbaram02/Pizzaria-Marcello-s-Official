@@ -1,0 +1,33 @@
+-- AlterTable
+ALTER TABLE "products" ADD COLUMN     "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+ADD COLUMN     "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP;
+
+-- CreateTable
+CREATE TABLE "orders" (
+    "id" TEXT NOT NULL,
+    "table" INTEGER NOT NULL,
+    "status" BOOLEAN NOT NULL DEFAULT false,
+    "draft" BOOLEAN NOT NULL DEFAULT true,
+    "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "orders_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "items" (
+    "id" TEXT NOT NULL,
+    "amount" INTEGER NOT NULL,
+    "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "product_id" TEXT NOT NULL,
+    "order_id" TEXT NOT NULL,
+
+    CONSTRAINT "items_pkey" PRIMARY KEY ("id")
+);
+
+-- AddForeignKey
+ALTER TABLE "items" ADD CONSTRAINT "items_product_id_fkey" FOREIGN KEY ("product_id") REFERENCES "products"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "items" ADD CONSTRAINT "items_order_id_fkey" FOREIGN KEY ("order_id") REFERENCES "orders"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
