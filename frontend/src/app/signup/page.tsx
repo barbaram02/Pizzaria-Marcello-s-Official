@@ -21,6 +21,7 @@ export default function Signup(){
       return;
     }
 
+
     try{ //Fazendo a requisição HTTP POST para o servidor Backend criar o usuário
       await api.post("/users", {
         name,
@@ -28,11 +29,10 @@ export default function Signup(){
         password
       })
 
-    }catch(err){
+    }catch(err:any){
       console.log("Error")
-      console.log(err)
+      console.log(err.response?.data)
     }
-
     redirect("/")
   }
 

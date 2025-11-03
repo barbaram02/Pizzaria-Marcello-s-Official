@@ -7,12 +7,14 @@ import logoImg from '/public/marcello-pizza-logo-compacto.svg'
 import {LogOutIcon} from 'lucide-react'
 import {deleteCookie} from 'cookies-next' //Import para usar na funcao de deletar o cookie e fazer o logout
 import {useRouter} from 'next/navigation' //Import para dar o replace e quando fizer o logout ele ir para a página de login. Usar apenas quando for Use Client
+import {toast} from 'sonner'
 
 export function Header(){
     const router = useRouter();
 
     async function handleLogout(){
         deleteCookie("session", {path: "/"})
+        toast.success("Logout realizado com sucesso!")
 
         router.replace("/")
     }
