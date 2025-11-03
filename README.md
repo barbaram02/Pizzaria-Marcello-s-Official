@@ -24,7 +24,7 @@ O sistema permite que os **funcionários abram mesas, adicionem e fechem pedidos
 * Express
 * TypeScript
 * PostgreSQL
-* Prisma ORM 
+* Prisma ORM
 * JWT para autenticação
 * Dotenv para variáveis de ambiente
 
@@ -68,7 +68,11 @@ cd Pizzaria-Marcello-s-Official
 
 ```bash
 cd backend
+# Usando npm
 npm install
+
+# Ou com Yarn
+yarn install
 ```
 
 Crie um arquivo `.env` na raiz do backend com as variáveis necessárias:
@@ -76,17 +80,21 @@ Crie um arquivo `.env` na raiz do backend com as variáveis necessárias:
 ```
 DATABASE_URL="postgresql://usuario:senha@localhost:5432/pizzaria"
 JWT_SECRET="seu_token_secreto"
-PORT=3333
+PORT=8000
 ```
 
 Inicie o servidor:
 
 ```bash
+# Com npm
 npm run dev
+
+# Ou com Yarn
+yarn dev
 ```
 
 O backend estará disponível em:
-👉 **[http://localhost:3333](http://localhost:3333)**
+👉 **[http://localhost:8000](http://localhost:8000)**
 
 ---
 
@@ -94,41 +102,31 @@ O backend estará disponível em:
 
 ```bash
 cd ../frontend
+# Usando npm
 npm install
+
+# Ou com Yarn
+yarn install
 ```
 
 Crie um arquivo `.env.local` na raiz do frontend (ajuste conforme necessário):
 
 ```
-NEXT_PUBLIC_API_URL=http://localhost:3333
+NEXT_PUBLIC_API_URL=http://localhost:8000
 ```
 
 Inicie o frontend:
 
 ```bash
+# Com npm
 npm run dev
+
+# Ou com Yarn
+yarn dev
 ```
 
 Acesse no navegador:
 👉 **[http://localhost:3000](http://localhost:3000)**
-
----
-
-## 🧪 Testes
-
-*(Opcional — adicionar quando houver testes implementados)*
-Para executar os testes automatizados:
-
-```bash
-npm test
-```
-
----
-
-## 📦 Deploy
-
-* O backend pode ser hospedado em plataformas como **Render**, **Railway** ou **Heroku**.
-* O frontend pode ser implantado em **Vercel**, **Netlify** ou outro provedor de hospedagem.
 
 ---
 
@@ -148,5 +146,5 @@ Após o login, o token é retornado e armazenado localmente pelo cliente para au
 
 ## 🪪 Licença
 
-Este projeto está sob a licença **MIT**.
-Sinta-se à vontade para usar, modificar e contribuir!
+Este projeto está sob a licença **MIT**<br>
+Uso permitido apenas como exemplo para estudo;
