@@ -1,0 +1,15 @@
+.button{
+    height: 40px;
+    border-radius: 8px;
+    border: 0;
+    background-color: var(--green-900);
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--white);
+    transition: background-color 0.5s ease; /* animação suave */
+
+    &:hover{
+        background-color: var(--orange);
+        transform: scale(1.05);
+    }
+}
