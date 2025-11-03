@@ -24,7 +24,7 @@ O sistema permite que os **funcionários abram mesas, adicionem e fechem pedidos
 * Express
 * TypeScript
 * PostgreSQL
-* Prisma ORM (caso esteja sendo usado)
+* Prisma ORM 
 * JWT para autenticação
 * Dotenv para variáveis de ambiente
 
