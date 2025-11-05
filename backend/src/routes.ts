@@ -38,8 +38,8 @@ router.post('/category', isAuthenticated, new CreateCategoryController().handle)
 router.get('/categorylist', isAuthenticated, new ListCategoryController().handle)
 
 //Rotas Products
-router.post('/products', isAuthenticated, upload.single('file') , new CreateProductController().handle)
-
+//router.post('/products', isAuthenticated, upload.single('file') , new CreateProductController().handle)
+router.post('/products', isAuthenticated, new CreateProductController().handle)
 router.get('/category/product', isAuthenticated, new ListByCategoryController().handle)
 
 //Rotas Order
