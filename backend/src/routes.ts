@@ -24,7 +24,7 @@ import { DetailOrderController } from './controllers/order/DetailOrderController
 import { FinishOrderController } from './controllers/order/FinishOrderController';
 
 const router = Router();
-const upload = multer(uploadConfig.upload("./tmp"));
+//const upload = multer(uploadConfig.upload("./tmp"));
 
 //--Rotas Users--
 router.post('/users', new CreateUserController().handle)
