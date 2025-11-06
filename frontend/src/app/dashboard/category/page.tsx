@@ -28,7 +28,7 @@ export default function Category(){ //Como e uma ágina, tem que ser export defa
             return;
         })
 
-        redirect("/dashboard")
+        redirect("/dashboard") //Removi o toast
     }
 
     return(
