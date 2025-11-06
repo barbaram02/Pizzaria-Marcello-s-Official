@@ -29,7 +29,6 @@ export default function Category(){ //Como e uma ágina, tem que ser export defa
             return;
         })
 
-        toast.success("Cadastrado Com Sucesso!")
         redirect("/dashboard")
     }
 
