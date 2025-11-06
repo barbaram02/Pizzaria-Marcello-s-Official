@@ -1,7 +1,17 @@
 # 🍕 Pizzaria Marcello’s Official
 
 O **Pizzaria Marcello’s Official** é um sistema interno desenvolvido para otimizar o atendimento e o controle de pedidos dentro da pizzaria.
-O sistema permite que os **funcionários abram mesas, adicionem e fechem pedidos**, enquanto o **pessoal da cozinha** acompanha em tempo real um **dashboard com todas as mesas e os respectivos pedidos**.
+A aplicação disponibiliza um **dashboard completo**, permitindo que os funcionários visualizem todos os pedidos abertos em tempo real, com **detalhamento de mesa, quantidade de itens e total de cada pedido**.
+Além disso, o sistema oferece funcionalidades administrativas, como **criação de novas categorias de produtos** e **cadastro de novos itens**, facilitando a gestão do cardápio diretamente pelo dashboard.
+
+A aplicação está **deployada no Vercel**, garantindo acesso rápido e confiável, e utiliza a **Neon como banco de dados na nuvem**, em conjunto com **PostgreSQL**, para gerenciamento seguro e escalável dos dados.
+
+
+---
+
+## 🌐 Deploy  
+Acesse a aplicação online no Vercel:  
+[**Pizzaria Marcello’s Official**](https://pizzaria-marcello-s-official-front.vercel.app/)
 
 ---
 
@@ -112,7 +122,7 @@ yarn install
 Crie um arquivo `.env.local` na raiz do frontend (ajuste conforme necessário):
 
 ```
-NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_PUBLIC_API_URL=http://localhost:3000
 ```
 
 Inicie o frontend:
