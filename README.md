@@ -1,7 +1,7 @@
 # 🍕 Pizzaria Marcello’s Official
 
 O **Pizzaria Marcello’s Official** é um sistema interno desenvolvido para otimizar o atendimento e o controle de pedidos dentro da pizzaria.
-A aplicação disponibiliza um **dashboard completo**, permitindo que os funcionários visualizem todos os pedidos abertos em tempo real, com **detalhamento de mesa, quantidade de itens e total de cada pedido**.
+Essa aplicação disponibiliza um **dashboard completo**, permitindo que os funcionários da cozinha visualizem todos os pedidos abertos em tempo real, com **detalhamento de mesa, quantidade de itens e total de cada pedido**.
 Além disso, o sistema oferece funcionalidades administrativas, como **criação de novas categorias de produtos** e **cadastro de novos itens**, facilitando a gestão do cardápio diretamente pelo dashboard.
 
 A aplicação está **deployada no Vercel**, garantindo acesso rápido e confiável, e utiliza a **Neon como banco de dados na nuvem**, em conjunto com **PostgreSQL**, para gerenciamento seguro e escalável dos dados.
