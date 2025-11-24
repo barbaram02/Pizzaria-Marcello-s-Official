@@ -6,7 +6,8 @@ import SignIn from "../pages/SignIn";
 
 const Stack = createNativeStackNavigator();
 
-function AuthRoutes(){{/*Stack.Screen é cada tela */}
+function AuthRoutes(){
+    // Stack.Screen é cada tela
     return(
         <Stack.Navigator>
             <Stack.Screen name="SigIn" component={SignIn} options={{headerShown: false}}/> 
