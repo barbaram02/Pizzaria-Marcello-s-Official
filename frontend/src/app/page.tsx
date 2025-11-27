@@ -1,21 +1,26 @@
 import styles from './page.module.scss'
-import logoImg from '/public/marcello-pizza-logo-compacto.svg'
+import logoImg from '../../public/marcello-pizza-logo-compacto.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import { api } from '@/services/api'
 import { redirect } from 'next/navigation'
 import { cookies } from 'next/headers'
+import { LoginForm } from './components/LoginForm'
+
+type LoginState = { error?: string }
 
 export default function Home() {
 
-  async function handleLogin(formData : FormData){ //Sempre que for função assincrona usamos AWAIT
+  const initialState: LoginState = { error: undefined }
+
+  async function handleLogin(prevState: LoginState | undefined, formData : FormData){ //Sempre que for função assincrona usamos AWAIT
     "use server"
 
     const email = formData.get("Email")
     const password =  formData.get("Password")
 
     if(email === ""|| password === ""){
-      return;
+      return { error: 'Informe o e-mail e a senha.' };
     }
 
     try {
@@ -26,7 +31,7 @@ export default function Home() {
       })
 
       if(!response.data.token){
-        return;
+        return { error: 'E-mail ou senha inválidos.' };
       }
 
       console.log(response.data);
@@ -44,11 +49,9 @@ export default function Home() {
 
     }catch (err: any) {
       console.log(err.response?.data); // <-- aqui está o que o backend retornou
-      return;
+      return  { error: 'Email ou senha incorreta.' };
     }
-
     redirect("/dashboard")
-
   }
 
   return (
@@ -61,27 +64,13 @@ export default function Home() {
       />
 
       <section className={styles.login}>
-        <form action={handleLogin}>
-          <input
-          type='Email'
-          required
-          name='Email'
-          placeholder='Digite seu email: '
-          className={styles.input}
+          <LoginForm 
+          action={handleLogin} 
+          inputClass={styles.input}
+          buttonClass={styles.button}
+          errorClass={styles.error}
+          toastClass={styles.toast}
           />
-          <input
-          type='Password'
-          required  
-          name='Password'
-          placeholder='***************'
-          className={styles.input}
-          />
-
-          <button type='submit' className={styles.button}>
-            Acessar
-          </button>
-        </form>
-
           <Link href='/signup' className={styles.text}>
             Não possui uma conta? Cadastre-se.
           </Link>

@@ -69,6 +69,41 @@
   font-size: 20px;
 }
 
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  min-width: 260px;
+  max-width: 320px;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  background: rgba(245, 86, 86, 0.9); // tom avermelhado
+  color: #050505;
+  font-size: 0.95rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  animation: toastFade 4s forwards;
+  pointer-events: none;
+}
+
+@keyframes toastFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
 
 
 @media (max-width: 620px){
