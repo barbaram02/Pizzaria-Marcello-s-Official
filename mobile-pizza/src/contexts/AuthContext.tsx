@@ -1,4 +1,4 @@
-import React, {useState, createContext, ReactNode, Children} from 'react';
+import React, {useState, createContext, ReactNode, useEffect} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { api } from '../services/api';
 
@@ -6,6 +6,9 @@ type AuthContextData = {
     user: UserProps;
     isAuthenticated: boolean;
     signIn: (credentials: SingInProps) => Promise<void>;
+    loadingAuth: boolean;
+    loading: boolean;
+    singOut: () => Promise<void>
 }
 
 type UserProps = {
@@ -35,8 +38,33 @@ export function AuthProvider({children}: AuthProviderProps){
     })
 
     const [loadingAuth, setloadingAuth] = useState(false); //Ter controle de carregamento ao clicar em Acessar(login)
+    const [loading, setLoading] = useState(true);//Começa carregando como busca de usuario
 
     const isAuthenticated = !!user.name //Retorna true se user.name existe e não é vazio, e false caso contrário.
+
+    useEffect(() => {
+        async function getUser(){
+            //Pegar os dados salvos do user
+            const userInfo = await AsyncStorage.getItem('@pizzariamarcello');
+            let hasUser: UserProps = JSON.parse(userInfo || '{}')
+
+            //Verificar se recebemos as informações do usuario
+            if(Object.keys(hasUser).length > 0){
+                api.defaults.headers.common['Authorization'] = `Bearer ${hasUser.token}`
+
+                setUser({
+                    id: hasUser.id,
+                    name: hasUser.name,
+                    email: hasUser.email,
+                    token: hasUser.token
+                })
+            }
+
+            setLoading(false);//Encerra o carregamento de busca de usuario
+        }
+
+        getUser();
+    }, [])
 
     async function signIn({email, password} : SingInProps){
         setloadingAuth(true); //Vai rodar o loading para mostrar que está carregando
@@ -74,8 +102,29 @@ export function AuthProvider({children}: AuthProviderProps){
         }
     }
     
+    async function singOut(){
+        await AsyncStorage.clear() //Limpando o storage com token para deslogar o usuário
+        .then(() => {
+            setUser({
+                id: '',
+                name: '',
+                email: '',
+                token: ''
+            })
+        })
+    }
+
+
     return(
-        <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
+        <AuthContext.Provider 
+        value={{ 
+            user, 
+            isAuthenticated, 
+            signIn, 
+            loadingAuth, 
+            loading,
+            singOut
+        }}>
             {children}
         </AuthContext.Provider>
     )
