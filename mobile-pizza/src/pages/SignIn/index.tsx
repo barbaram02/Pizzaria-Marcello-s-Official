@@ -26,15 +26,18 @@ export default function SignIn(){
             />
 
             <View style={styles.inputContainer}>
+             <Text style={styles.text}>Digite seu email: </Text>
                 <TextInput
-                    placeholder="Digite seu email:"
+                    placeholder="Email..."
                     placeholderTextColor="#8a8a8a"
                     style={styles.input}
                     value={email}
                     onChangeText={setEmail}
                 />
+
+                <Text style={styles.text}>Digite sua senha: </Text>
                  <TextInput
-                    placeholder="Digite sua senha:"
+                    placeholder="Senha..."
                     placeholderTextColor="#8a8a8a"
                     secureTextEntry={true}
                     style={styles.input}
@@ -62,7 +65,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#1d1d2e',
     },
     logo:{
-        marginBottom: 18,
         width: 300,      
         height: 160,   
         resizeMode: 'contain',
@@ -98,5 +100,12 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#101026'
+    },
+    text:{
+        fontSize: 18,
+        display: 'flex',
+        color: '#FFF',
+        marginBottom: 13,
+        marginRight: 190
     }
 });

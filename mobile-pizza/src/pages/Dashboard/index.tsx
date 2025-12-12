@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {View, Text, TouchableOpacity, TextInput, StyleSheet} from 'react-native'
+import React, {useState, useContext} from "react";
+import {View, Text, TouchableOpacity, TextInput, StyleSheet, Image} from 'react-native'
 
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -8,7 +8,11 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { StackPramsList } from "../../routes/app.routes";
 
+import {AuthContext} from "../../contexts/AuthContext"
+
 export default function Dashboard(){
+
+    const { singOut, loadingAuth } = useContext(AuthContext)
 
     const navigation = useNavigation<NativeStackNavigationProp<StackPramsList>>();
 
@@ -24,6 +28,16 @@ export default function Dashboard(){
 
     return(
         <SafeAreaView style={styles.container}>
+
+            <Image 
+            style={styles.logo}
+            source={require('../../assets/marcello-pizza-logo-compacto.png')}
+            />
+
+            <TouchableOpacity style={styles.buttonExit} onPress={singOut}>
+                    <Text style={styles.buttonText}> Sair </Text>
+            </TouchableOpacity>
+
             <Text style={styles.title}>Novo Pedido</Text>
 
             <TextInput placeholder="Numero da mesa"
@@ -47,13 +61,29 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 15,
         backgroundColor: '#1d1d2e'
-
+    },
+    logo:{
+        width: 300,      
+        height: 160,   
+        resizeMode: 'contain',
     },
     title:{
-        fontSize: 30,
+        fontSize: 22,
         fontWeight: 'bold',
         color: '#FFF',
         marginBottom: 24,
+    },
+    buttonExit:{
+        width: '15%',
+        height: 30,
+        backgroundColor: '#FF3F4b',
+        borderRadius: 4,
+        justifyContent: 'center',
+        alignItems: 'center', // para centralizar o texto dentro
+        alignSelf: 'flex-end', // <- esse move o botão no container
+        position: 'absolute',
+        top: 60,        // <-- faz o botão subir
+        marginRight: 20
     },
     input:{
         width: '90%',
