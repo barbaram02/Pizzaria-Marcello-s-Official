@@ -7,7 +7,7 @@ import { Feather } from '@expo/vector-icons'
 
 type RouteDatailParams = {
     Order:{
-        number: number | string;
+        table: number | string;
         order_id: string;
     }
 }
@@ -22,7 +22,7 @@ export default function Order(){
         <View style={styles.container}>
 
              <View style={styles.header}>
-                <Text style={styles.title}>Mesa {route.params.number}</Text>
+                <Text style={styles.title}>Mesa {route.params.table}</Text>
 
                 <TouchableOpacity>
                     <Feather name="trash-2" size={28} color="#FF3F4b"/>

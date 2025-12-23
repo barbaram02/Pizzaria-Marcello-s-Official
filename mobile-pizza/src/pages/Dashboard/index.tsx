@@ -1,5 +1,5 @@
 import React, {useState, useContext} from "react";
-import {View, Text, TouchableOpacity, TextInput, StyleSheet, Image} from 'react-native'
+import {View, Text, TouchableOpacity, TextInput, StyleSheet, Image, Alert} from 'react-native'
 
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -9,10 +9,16 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { StackPramsList } from "../../routes/app.routes";
 
 import {AuthContext} from "../../contexts/AuthContext"
+import { StatusBar } from "expo-status-bar";
+import { colors } from "../../constants/theme";
+
+import { api } from "../../services/api";
+import { Order } from "../../../types";
 
 export default function Dashboard(){
 
     const { singOut, loadingAuth } = useContext(AuthContext)
+    const [loading, setLoading] = useState(false);
 
     const navigation = useNavigation<NativeStackNavigationProp<StackPramsList>>();
 
@@ -20,14 +26,43 @@ export default function Dashboard(){
 
     async function openOrder(){
         if(number === ''){
+            Alert.alert("Atenção", "Digite um número da mesa válido.")
             return;
         }
 
-        navigation.navigate('Order', { number: number, order_id: 'cdscd'})
+        const table = parseInt(number)
+
+        if(isNaN(table) || table <= 0){
+            Alert.alert("Atenção", "Digite um numero da mesa válido.")
+            return;
+        }
+
+        try{
+            setLoading(true)
+
+            const response = await api.post<Order>("/order", {
+                table: table,
+            });
+
+            navigation.navigate('Order', {
+                table: response.data.table,
+                order_id: response.data.id,
+              })
+              
+        }catch(err: any){
+            const message = err.response?.data?.error || "Erro ao criar pedido";
+
+            Alert.alert("Atenção", message);
+
+            console.log(err.response?.data); // só pra debug
+        }finally{
+            setLoading(false)
+        }  
     }
 
     return(
         <SafeAreaView style={styles.container}>
+            <StatusBar style="light" backgroundColor={colors.background}/>
 
             <Image 
             style={styles.logo}
@@ -42,10 +77,11 @@ export default function Dashboard(){
 
             <TextInput placeholder="Numero da mesa"
             placeholderTextColor={"#F0F0F0"}
-            keyboardType="numeric"
             value={number}
             onChangeText={setNumber}
-            style={styles.input}/>
+            style={styles.input}
+            keyboardType="numeric"
+            />
 
             <TouchableOpacity style={styles.button} onPress={openOrder}>
                 <Text style={styles.buttonText}>Abrir Mesa</Text>

@@ -8,7 +8,7 @@ import Order from "../pages/Order";
 export type StackPramsList = {
     Dashboard: undefined;
     Order: {
-        number: number | string;
+        table: number | string;
         order_id: string;
     };
 };

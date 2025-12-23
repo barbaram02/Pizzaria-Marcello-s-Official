@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react'
 import { View, Text, StyleSheet, Image, TextInput, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { AuthContext } from '../../contexts/AuthContext';
+import { Button } from '../../components/Button';
 
 export default function SignIn(){
 
@@ -33,6 +34,7 @@ export default function SignIn(){
                     style={styles.input}
                     value={email}
                     onChangeText={setEmail}
+                    keyboardType="email-address"
                 />
 
                 <Text style={styles.text}>Digite sua senha: </Text>
@@ -45,14 +47,9 @@ export default function SignIn(){
                     onChangeText={setPassword}
                 />
 
-                <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                    {loadingAuth ? ( //Aparecer bolinha de carregando no botão de acessar
-                        <ActivityIndicator size={25} color="#101026"/>
-                    ): (<Text style={styles.buttonText}>Acessar</Text>
-                    )}
-                </TouchableOpacity>
+                <Button title="Acessar" loading={loadingAuth} onPress={handleLogin}/>
+
             </View>
-            
         </View>
     )
 }
@@ -86,20 +83,6 @@ const styles = StyleSheet.create({
         color: '#FFF',
         borderWidth: 1,
         borderColor: '#8a8a8a',
-    },
-    button:{
-        width: '95%',
-        height: 40,
-        backgroundColor: '#3fffa3',
-        borderRadius: 4,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 10
-    },
-    buttonText:{
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#101026'
     },
     text:{
         fontSize: 18,
