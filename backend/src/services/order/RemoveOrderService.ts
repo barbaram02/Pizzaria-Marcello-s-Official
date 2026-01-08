@@ -1,4 +1,4 @@
-import prismaClient from "../../prisma";
+import {prisma} from "../../../prisma.config";
 
 interface OrderRequest{
     order_id: string;
@@ -7,7 +7,7 @@ interface OrderRequest{
 class RemoveOrderService{
     async execute({order_id}: OrderRequest){
         
-        const orderRemove = await prismaClient.order.delete({
+        const orderRemove = await prisma.order.delete({
             where:{
                 id : order_id
             }

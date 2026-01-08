@@ -1,4 +1,5 @@
-import prismaClient from "../../prisma"
+import { prisma } from "../../../prisma.config";
+
 
 interface DatailOrder{
     order_id: string;
@@ -7,7 +8,7 @@ interface DatailOrder{
 class DetailOrderService{
     async execute({order_id}: DatailOrder){
 
-        const orders = await prismaClient.item.findMany({
+        const orders = await prisma.item.findMany({
             where:{
                 order_id: order_id
             }, 

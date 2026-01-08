@@ -1,5 +1,5 @@
 import { compare } from "bcryptjs";
-import prismaClient from "../../prisma";
+import {prisma} from "../../../prisma.config";
 import { sign } from "jsonwebtoken"
 
 interface AuthRequest{
@@ -10,7 +10,7 @@ interface AuthRequest{
 class AuthUserService{
     async execute({email, password}: AuthRequest){
         //verificar se o email existe
-        const user = await prismaClient.user.findFirst({
+        const user = await prisma.user.findFirst({
             where: {  
                 email: email,
             }

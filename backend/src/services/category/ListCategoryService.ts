@@ -1,11 +1,13 @@
-import prismaClient from "../../prisma";
+import {prisma} from "../../../prisma.config";
+
 
 class ListCategoryService{
     async execute(){
-        const category = await prismaClient.category.findMany({
+        const category = await prisma.category.findMany({
             select:{
                 id: true,
-                name: true
+                name: true,
+                created_at: true
             }
         })
 

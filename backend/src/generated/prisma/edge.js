@@ -172,7 +172,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\basantos\\MeusProjetosPessoais\\pizzaria\\backend\\src\\generated\\prisma",
+      "value": "C:\\Users\\basantos\\MeusProjetosPessoais\\Pizzaria-Marcello-s-Official\\backend\\src\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -186,7 +186,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\basantos\\MeusProjetosPessoais\\pizzaria\\backend\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\basantos\\MeusProjetosPessoais\\Pizzaria-Marcello-s-Official\\backend\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
