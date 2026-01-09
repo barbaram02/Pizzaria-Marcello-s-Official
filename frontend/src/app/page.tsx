@@ -1,5 +1,4 @@
 import styles from './page.module.scss'
-import logoImg from '/public/marcello-pizza-logo-compacto.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 import { api } from '@/services/api'
@@ -55,7 +54,7 @@ export default function Home() {
    <>
     <div className={styles.containerCenter}>
       <Image
-       src={logoImg} 
+       src="/marcello-pizza-logo-compacto.svg"
        alt='Logo da Pizzaria' 
        width={500}   // largura em px
       />
