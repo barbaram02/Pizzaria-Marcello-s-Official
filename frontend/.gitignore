@@ -42,3 +42,5 @@ next-env.d.ts
 
 //Arquivo de texto
 .md
+
+../mobile-pizza/
