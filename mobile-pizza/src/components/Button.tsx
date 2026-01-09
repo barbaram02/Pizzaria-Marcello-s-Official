@@ -39,8 +39,8 @@ export function Button({
 
 const styles = StyleSheet.create({
     button:{
-        width: '95%',
-        height: 40,
+        width: '100%',
+        height: 45,
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 10,

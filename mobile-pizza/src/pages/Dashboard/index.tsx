@@ -45,9 +45,11 @@ export default function Dashboard(){
             });
 
             navigation.navigate('Order', {
-                table: response.data.table,
+                table: response.data.table.toString(),
                 order_id: response.data.id,
               })
+
+              setNumber("");
               
         }catch(err: any){
             const message = err.response?.data?.error || "Erro ao criar pedido";
@@ -57,7 +59,8 @@ export default function Dashboard(){
             console.log(err.response?.data); // só pra debug
         }finally{
             setLoading(false)
-        }  
+        }
+        
     }
 
     return(
