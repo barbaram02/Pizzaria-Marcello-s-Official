@@ -3,6 +3,15 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+<<<<<<< Updated upstream
     "jsx": "react-jsx"
   }
+=======
+    //"module": "commonjs"
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/**"
+  ]
+>>>>>>> Stashed changes
 }
