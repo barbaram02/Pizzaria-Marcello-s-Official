@@ -1,17 +1,10 @@
 {
-  "extends": "expo/tsconfig.base",
-  "compilerOptions": {
-    "strict": true,
-<<<<<<< Updated upstream
-    //"module": "commonjs"
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "extends": "expo/tsconfig.base",
+    "compilerOptions": {
+      "strict": true,
+      "jsx": "react-jsx",
+      "module": "esnext" 
+    }
   }
-}
-=======
-    "jsx": "react-jsx"
-  },
-  "exclude": [
-    "node_modules",
-    "**/node_modules/**"
-  ]
-}
->>>>>>> Stashed changes
+  
