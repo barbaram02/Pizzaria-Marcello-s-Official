@@ -1,4 +1,5 @@
-import prismaClient from "../../prisma";
+import {prisma} from "../../../prisma.config";
+
 
 interface CategoryRequest{
     name: string;
@@ -13,7 +14,7 @@ class CreateCategoryService{
 
         //Salvar o nome no banco de dados
 
-        const category = await prismaClient.category.create({
+        const category = await prisma.category.create({
             data:{
                 name : name
             },

@@ -1,7 +1,10 @@
-import { PrismaClient } from '../generated/prisma/client'
+// qualquer arquivo TypeScript
+import { PrismaClient } from "@prisma/client";
 
-const prismaClient = new PrismaClient();
+const prisma = new PrismaClient({
+  datasources: {
+    db: { url: process.env.DATABASE_URL }
+  }
+});
 
-export default prismaClient;
-
-//Com o prismaclient consigo acessar todos os models, usuarios, fazer um CRUD dos usuarios
+export { prisma };

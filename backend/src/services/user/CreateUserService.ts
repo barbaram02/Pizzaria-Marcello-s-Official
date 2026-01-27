@@ -1,4 +1,4 @@
-import prismaClient from "../../prisma";
+import {prisma} from "../../../prisma.config";
 import {hash} from 'bcryptjs'; 
 
 // Ele é responsavel por fazer a manipulação de dados e pelo lógica.
@@ -17,7 +17,7 @@ class CreateUserService{
         }
 
         //Verificar se o email ja esta cadastrado na plataforma
-        const userAlreadyExists = await prismaClient.user.findFirst({
+        const userAlreadyExists = await prisma.user.findFirst({
             where:{
                 email: email
             }
@@ -30,7 +30,7 @@ class CreateUserService{
         const passwordHash = await hash(password, 8)
 
         //Adicionando usuario no banco de dados
-        const user = await prismaClient.user.create({
+        const user = await prisma.user.create({
             //Dados/informacoes
             data:{
                 name: name,

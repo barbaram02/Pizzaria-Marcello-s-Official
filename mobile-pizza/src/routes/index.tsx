@@ -7,10 +7,8 @@ import { AuthContext } from "../contexts/AuthContext";
 import AppRoutes from "./app.routes";
 import AuthRoutes from "./auth.routes";
 
-function Routes(){
-    const {isAuthenticated} = useContext(AuthContext)
-
-    const loading = false; //Para saber se está carregando
+function Routes(){ //O context está controlando o loading
+    const {isAuthenticated, loading} = useContext(AuthContext)
 
     if(loading){
         return(
